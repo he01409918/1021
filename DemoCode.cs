@@ -11,6 +11,13 @@ public class DemoCode : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "02")
+        {
+            DemoCode2 otherScore = other.gameObject.GetComponent<DemoCode2>();
+            curretScore += otherScore.myScore;
+            ScoreText.text = curretScore.ToString();
+            Debug.LogError("我碰到吐司了");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -11,14 +11,14 @@ public class DemoCode : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("OnTriggerEnter");
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "02")
         {
-            curretScore += 5;
+            DemoCode2 otherScore = collision.collider.GetComponent<DemoCode2>();
+            curretScore += otherScore.myScore;
             ScoreText.text = curretScore.ToString();
             Debug.LogError("我碰到吐司了");
         }

@@ -1,24 +1,34 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Manager : MonoBehaviour
 {
+    public static Manager Instance;
 
     public GameObject Obj;
 
     public Transform Point;
 
-    // Start is called before the first frame update
+    public Text ScoreText;
+
+    public float currentScore;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         NewObj();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void UpdateScore(float score) ///更新文字
     {
-        
+        currentScore += score;
+        ScoreText.text = currentScore.ToString();
     }
 
     public void NewObj()///生成

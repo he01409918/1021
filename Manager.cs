@@ -24,6 +24,19 @@ public class Manager : MonoBehaviour
         NewObj();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject gun = GameObject.Find("Gun");
+            if (gun == null)
+            {
+                Debug.LogError("請將槍改名為Gun");
+                return;
+            }
+            gun.GetComponent<Gun>().Fire();
+        }
+    }
 
     public void UpdateScore(float score) ///更新文字
     {

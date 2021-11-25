@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRTK;
 public class Manager : MonoBehaviour
 {
     public static Manager Instance;
@@ -13,6 +14,8 @@ public class Manager : MonoBehaviour
     public Text ScoreText;
 
     public float currentScore;
+
+    public GameObject Player;
 
     private void Awake()
     {
@@ -38,6 +41,7 @@ public class Manager : MonoBehaviour
         }
     }
 
+
     public void UpdateScore(float score) ///更新文字
     {
         currentScore += score;
@@ -47,7 +51,6 @@ public class Manager : MonoBehaviour
     public void NewObj()///生成
     {
         GameObject obj = Instantiate(Obj , Point.position, Point.rotation);
-        Destroy(obj, 5);
         Invoke("NewObj", 3);
     }
 }

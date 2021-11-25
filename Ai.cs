@@ -17,8 +17,23 @@ public class Ai : MonoBehaviour
 
     void Update()
     {
-        nav.SetDestination(point.position);
-        anim.SetBool("movement", nav.remainingDistance > nav.stoppingDistance ? true : false);
+        if (Hp > 0)
+        {
+            nav.SetDestination(point.position);
+            anim.SetBool("movement", nav.remainingDistance > nav.stoppingDistance ? true : false);
+        }
+    }
+
+    public void OnGetHit(float value)
+    {
+        if (Hp > 0)
+        {
+            Hp -= value;
+            if (Hp <= 0)
+            {
+                anim.Play("Death");
+            }
+        }
     }
 
 }

@@ -31,6 +31,7 @@ public class Ai : MonoBehaviour
             if (Hp <= 0)
             {
                 anim.Play("Death");
+                Destroy(gameObject, 5);
             }
         }
     }

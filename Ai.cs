@@ -6,7 +6,6 @@ public class Ai : MonoBehaviour
 {
     private Animator anim;
     private NavMeshAgent nav;
-    public Transform point;
 
     public float Hp;
     void Start()
@@ -19,7 +18,7 @@ public class Ai : MonoBehaviour
     {
         if (Hp > 0)
         {
-            nav.SetDestination(point.position);
+            nav.SetDestination(Manager.Instance.Player.transform.position);
             anim.SetBool("movement", nav.remainingDistance > nav.stoppingDistance ? true : false);
         }
     }
